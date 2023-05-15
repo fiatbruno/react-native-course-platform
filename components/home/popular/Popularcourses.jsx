@@ -1,5 +1,4 @@
-import React from "react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {
     View,
     Text,
@@ -9,18 +8,18 @@ import {
 } from "react-native"
 import { useRouter } from "expo-router"
 import PopularCourseCard from "../../common/cards/popular/PopularCourseCard"
+import useFetch from "../../../hook/useFetch"
 
 import styles from "./popularcourses.style"
 import { COLORS, SIZES } from "../../../constants"
 
-const Popularjobs = () => {
+const Popularcourses = () => {
     const router = useRouter()
-    const isLoading = false
-    const error = false
+    const { data, isLoading, error } = useFetch("course-names")
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerTitle}>Popularjobs</Text>
+                <Text style={styles.headerTitle}>Popularcourses</Text>
                 <TouchableOpacity>
                     <Text style={styles.headerBtn}>Show all</Text>
                 </TouchableOpacity>
@@ -53,4 +52,4 @@ const Popularjobs = () => {
     )
 }
 
-export default Popularjobs
+export default Popularcourses

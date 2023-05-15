@@ -1,13 +1,28 @@
 import React from "react"
-import { View, Text } from "react-native"
+import { View, Text, TouchableOpacity, Image } from "react-native"
 
 import styles from "./popularcoursecard.style"
 
-const PopularCourseCard = () => {
+const PopularCourseCard = ({
+    item,
+    selectedCourse,
+    handleCardPress,
+}) => {
     return (
-        <View>
-            <Text>PopularCourseCard</Text>
-        </View>
+        <TouchableOpacity
+            style={styles.container(selectedCourse, item)}
+            onPress={() => handleCardPress(item)}
+        >
+            <TouchableOpacity
+                style={styles.logoContainer(selectedCourse, item)}
+            >
+                <Image
+                    source={{ uri: item.employer_logo }}
+                    resizeMode="contain"
+                    style={styles.logoImage}
+                ></Image>
+            </TouchableOpacity>
+        </TouchableOpacity>
     )
 }
 
