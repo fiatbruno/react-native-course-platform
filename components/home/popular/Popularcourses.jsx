@@ -15,7 +15,11 @@ import { COLORS, SIZES } from "../../../constants"
 
 const Popularcourses = () => {
     const router = useRouter()
-    const { data, isLoading, error } = useFetch("course-names")
+    const { data, isLoading, error } = useFetch("search", {
+        query: "React Developer",
+        num_pages: 1,
+    })
+    // console.log(data)
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -34,13 +38,13 @@ const Popularcourses = () => {
                     <Text>There is a problem</Text>
                 ) : (
                     <FlatList
-                        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+                        data={data}
                         renderItem={({ item }) => (
                             <PopularCourseCard
                                 item={item}
                             ></PopularCourseCard>
                         )}
-                        keyExtractor={(item) => item}
+                        keyExtractor={(item) => item.job_id}
                         contentContainerStyle={{
                             columnGap: SIZES.medium,
                         }}

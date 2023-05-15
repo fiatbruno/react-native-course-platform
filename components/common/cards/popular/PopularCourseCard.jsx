@@ -22,6 +22,13 @@ const PopularCourseCard = ({
                     style={styles.logoImage}
                 ></Image>
             </TouchableOpacity>
+            <Text style={styles.companyName} numberOfLines={1}>
+                {item.employer_name}
+            </Text>
+            <View style={styles.infoContainer}>
+                <Text style={styles.jobName(selectedCourse, item)} numberOfLines={1}>{item.job_title}</Text>
+                <Text style={styles.location}> {item.job_country}</Text>
+            </View>
         </TouchableOpacity>
     )
 }
