@@ -22,7 +22,7 @@ const Popularcourses = () => {
     const [selectedCourse, setSelectedCourse] = useState()
 
     const handleCardPress = (item) => {}
-    
+
     // console.log(data)
     return (
         <View style={styles.container}>
@@ -48,6 +48,7 @@ const Popularcourses = () => {
                         renderItem={({ item }) => (
                             <PopularCourseCard
                                 item={item}
+                                handleCardPress={handleCardPress}
                             ></PopularCourseCard>
                         )}
                         keyExtractor={(item) => item.job_id}
