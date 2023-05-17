@@ -19,11 +19,17 @@ const Popularcourses = () => {
         query: "React Developer",
         num_pages: 1,
     })
+    const [selectedCourse, setSelectedCourse] = useState()
+
+    const handleCardPress = (item) => {}
+    
     // console.log(data)
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerTitle}>Popularcourses</Text>
+                <Text style={styles.headerTitle}>
+                    Popular Courses
+                </Text>
                 <TouchableOpacity>
                     <Text style={styles.headerBtn}>Show all</Text>
                 </TouchableOpacity>
